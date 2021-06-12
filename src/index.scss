@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #e4ebf5;
+  box-sizing: border-box;
+}
+
+div{
+  box-sizing: border-box;
+}
+
+:root{
+  --primary-light: #8abdff;
+  --primary-dark: #5b0eeb;
+  --white: #FFFFFF;
+  --greyLight-1: #E4EBF5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #60697c;
+  --greyDarkHover : #25272b;
+  --primary : #9286ff;
+  --shadow: .3rem .3rem .6rem var(--greyLight-2), -.2rem -.2rem .5rem var(--white);
+  --inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2), inset -.2rem -.2rem .5rem var(--white);
+}
+
+p,h1,h2,h3,h4,h5,h6,a{
+  margin : 0;
+  padding : 0;
+}
+
+label{
+  display: block;
+  text-align: start;
+  padding: 5px;
+  width: min-content;
+}
+
+// https://stackoverflow.com/a/8727612
+.clearfix:before,
+.clearfix:after {
+    content: ".";    
+    display: block;    
+    height: 0;    
+    overflow: hidden; 
+}
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; } /* IE < 8 */
+
+
+.neulink{
+  color: var(--greyDark);
+  cursor: pointer;
+
+  &:hover, &:active{
+    color: var(--greyDarkHover);
+  }
+
+
+}
+
+.navtext {
+  margin-top : 10px; 
+}
+
+.navlinks{
+  display: flex;
+  // align-items: center;
+
+  & > * {
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+}
+
+p{
+  color: var(--greyDark);
+}
+
+a:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: inherit;
+}
+
+a:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: inherit;
+}
