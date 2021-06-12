@@ -10,6 +10,9 @@ export class UserInfo extends Component {
                     <input type="text" id='input-name' className="form-input" ></input>
                     <label htmlFor='input-message'><p>Message</p></label>
                     <textarea id='input-message' className="form-input" ></textarea>
+                    <div className='button-container'>
+                        <div className='neu-button'>Submit</div>
+                    </div>
                 </div>
             </div>
         )

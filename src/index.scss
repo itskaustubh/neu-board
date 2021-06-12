@@ -9,6 +9,16 @@ body {
   box-sizing: border-box;
 }
 
+// https://stackoverflow.com/a/67373942
+*{
+    -webkit-user-select: none;    /* Safari */
+    -webkit-touch-callout: none;  /* iOS Safari */
+    -khtml-user-select: none;     /* Konqueror HTML */
+    -ms-user-select: none;        /* Internet Explorer/Edge */
+    -moz-user-select: none;       /* Old versions of Firefox */
+     user-select: none;           /* Non-prefixed version*/
+}
+
 div{
   box-sizing: border-box;
 }
@@ -39,16 +49,25 @@ label{
   width: min-content;
 }
 
-// https://stackoverflow.com/a/8727612
-.clearfix:before,
-.clearfix:after {
-    content: ".";    
-    display: block;    
-    height: 0;    
-    overflow: hidden; 
+.neu-button {
+  width: 120px;
+  height: 40px;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: .3s ease;
+
+  color: var(--greyDark);
+  &:hover { color: var(--primary); }
+  &:active {
+    box-shadow: var(--inner-shadow);
+  }
+
 }
-.clearfix:after { clear: both; }
-.clearfix { zoom: 1; } /* IE < 8 */
 
 
 .neulink{

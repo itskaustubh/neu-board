@@ -26,6 +26,11 @@
                 &::placeholder { color: var(--greyLight-3); }
                 &:focus { outline: none; box-shadow: var(--shadow); }
             }
+
+            .button-container{
+                display: flex;
+                justify-content: center;
+            }
         }
     
         textarea{

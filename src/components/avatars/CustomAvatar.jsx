@@ -3,6 +3,7 @@ import Avatar from 'react-nice-avatar'
 import './CustomAvatar.scss'
 import { HexColorPicker } from "react-colorful";
 import palette from '../../assets/color-palette.svg'
+import AvatarAttribute from './AvatarAttribute'
 
 export class CustomAvatar extends Component {
     constructor(){
@@ -98,7 +99,7 @@ export class CustomAvatar extends Component {
 
     generateRandomAvatar = () => {
         if(this.state.showRandomStylesTooltip) {
-            this.state.showRandomStylesTooltip = false;
+            this.setState({showRandomStylesTooltip : false})
         }
         this.setState({
             sex : this.randomVal(this.styleOpts.sex),
@@ -187,6 +188,7 @@ export class CustomAvatar extends Component {
                                <this.Option key={index} id={style} name={this.capitalize(style)} stateValue={noseStyle}/>
                             ))}
                         </div>
+                        <AvatarAttribute title='Mouth' id='mouthStyle' styleOpts={this.styleOpts['mouthStyle']} stateValue={mouthStyle} onClick={this.handleClick}/>
                         <p className="field">MOUTH</p>
                         <div className="opts" id='mouthStyle' onClick={this.handleClick}>
                             {this.styleOpts['mouthStyle'].map((style,index) => (
