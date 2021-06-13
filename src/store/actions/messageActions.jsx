@@ -1,6 +1,6 @@
 export const uploadMessage = (messagePayload) => {
     return (dispatch, getState,{ getFirebase,getFirestore }) => {
-        // some async code
+
         const firestore = getFirestore()
         firestore.collection('messages').add({
             ...messagePayload
