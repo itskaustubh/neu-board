@@ -1,25 +1,13 @@
 import React, { Component } from 'react'
 import Avatar from 'react-nice-avatar'
 import './CustomAvatar.scss'
-import { HexColorPicker } from "react-colorful";
-import palette from '../../assets/color-palette.svg'
 import AvatarAttribute from './AvatarAttribute'
+import { connect } from 'react-redux'
 
 export class CustomAvatar extends Component {
-    constructor(){
+    constructor(props){
         super()
-        this.state = {
-                sex : 'man',
-                faceColor : '#F9C9B6',
-                earSize : 'small',
-                hairColor : 'black',
-                hairStyle : 'normal',
-                eyeStyle : 'oval',
-                glassesStyle : 'round',
-                noseStyle : 'short',
-                mouthStyle : 'smile',
-                shirtStyle : 'hoody',
-                shirtColor : 'turquoise',
+        this.state = {...props.avatar,
                 openHairColorPicker : false,
                 openShirtColorPicker : false,
                 openFaceColorPicker : false,
@@ -29,7 +17,7 @@ export class CustomAvatar extends Component {
             sex : ['man', 'woman'],
             faceColor : {'#F9C9B6' : 'Light','#AC6651' : 'Dark'},
             earSize : ['small','big'],
-            hairStyleArray : ['normal','thick','mohowk','womanLong','womanShort'],
+            hairStyleArray : ['normal','thick','mohawk','womanLong','womanShort'],
             hairStyle : {'normal':'Normal', 'thick':'Thick', 'mohawk':'Mohowk', 'womanLong':'Woman Long', 'womanShort':'Woman Short'},
             eyeStyle : ['circle', 'oval', 'smile'],
             glassesStyle : ['none', 'round', 'square'],
@@ -45,7 +33,7 @@ export class CustomAvatar extends Component {
         // console.log(target)
         if(target !== parentClass){
             this.setState({[parentClass] : target }, function ()  {
-                console.log(target)
+                // console.log(target)
             })
         }
     }
@@ -77,7 +65,7 @@ export class CustomAvatar extends Component {
     }
 
     closeColorPicker = (e) => {
-        console.log(e)
+        // console.log(e)
         if((this.state.openHairColorPicker || this.state.openShirtColorPicker || this.state.openFaceColorPicker)){
             // if(e.type === 'scroll'){
             //     this.setState({openHairColorPicker: false, openShirtColorPicker: false, openFaceColorPicker : false})
@@ -134,81 +122,21 @@ export class CustomAvatar extends Component {
                                     shirtStyle={shirtStyle} shirtColor={shirtColor} bgColor='transparent'/>
                     </div>
                     <div className="info" onClick={this.closeColorPicker}>
-                        {/* <p className="field">SEX</p>
-                        <div className="opts" id='sex' onClick={this.handleClick}>
-                            {this.styleOpts['sex'].map((style,index) => (
-                               <this.Option key={index} id={style} name={this.capitalize(style)} stateValue={sex}/>
-                            ))}
-                        </div> */}
-                        <div className="field">
-                            <p>FACE</p>
-                            <div className="colorPanelWrapper">
-                            <img src={palette} alt="Custom Color" className='icon-palette' id='openFaceColorPicker' onBlur={this.handleBlur} onClick={this.toggleColorPicker}/>
-                                { openFaceColorPicker ?  (<HexColorPicker className='colorPanel' color={faceColor} onChange={this.onChangeColor.bind(this,'faceColor')}/>) : null }                                    
-                            </div>
-                        </div>
-                         <div className="opts" id='faceColor' onClick={this.handleClick}>
-                         {Object.keys(this.styleOpts.faceColor).map((style,index) => (
-                               <this.Option key={index} id={style} name={this.capitalize(this.styleOpts.faceColor[style])} stateValue={faceColor}/>
-                            ))}
-                        </div> 
-                        <div className="field">
-                            <p>HAIR</p>
-                            <div className="colorPanelWrapper">
-                                <img src={palette}  alt="Custom Color" className='icon-palette' id='openHairColorPicker'  onBlur={this.handleBlur} onClick={this.toggleColorPicker}/>
-                                { openHairColorPicker ?  (<HexColorPicker className='colorPanel' id='hairColor' color={hairColor} onChange={this.onChangeColor.bind(this,'hairColor')}/>) : null }                                    
-                            </div>
-                        </div>
-                        <div className="opts" id='hairStyle' onClick={this.handleClick}>
-                            {Object.keys(this.styleOpts.hairStyle).map((style,index) => (
-                               <this.Option key={index} id={style} name={this.capitalize(this.styleOpts.hairStyle[style])} stateValue={hairStyle}/>
-                            ))}
-                        </div>
-                        <p className="field">EYES</p>
-                        <div className="opts" id='eyeStyle' onClick={this.handleClick}>
-                            {this.styleOpts['eyeStyle'].map((style,index) => (
-                               <this.Option key={index} id={style} name={this.capitalize(style)} stateValue={eyeStyle}/>
-                            ))}
-                        </div>
-                        <p className="field">GLASSES</p>
-                        <div className="opts" id='glassesStyle' onClick={this.handleClick}>
-                            {this.styleOpts['glassesStyle'].map((style,index) => (
-                               <this.Option key={index} id={style} name={this.capitalize(style)} stateValue={glassesStyle}/>
-                            ))}
-                        </div>
-                        <p className="field">EAR</p>
-                        <div className="opts" id='earSize' onClick={this.handleClick}>
-                            {this.styleOpts['earSize'].map((style,index) => (
-                               <this.Option key={index} id={style} name={this.capitalize(style)} stateValue={earSize}/>
-                            ))}
-                        </div>
-                        <p className="field">NOSE</p>
-                        <div className="opts" id='noseStyle' onClick={this.handleClick}>
-                            {this.styleOpts['noseStyle'].map((style,index) => (
-                               <this.Option key={index} id={style} name={this.capitalize(style)} stateValue={noseStyle}/>
-                            ))}
-                        </div>
-                        <AvatarAttribute title='Mouth' id='mouthStyle' styleOpts={this.styleOpts['mouthStyle']} stateValue={mouthStyle} onClick={this.handleClick}/>
-                        <p className="field">MOUTH</p>
-                        <div className="opts" id='mouthStyle' onClick={this.handleClick}>
-                            {this.styleOpts['mouthStyle'].map((style,index) => (
-                               <this.Option key={index} id={style} name={this.capitalize(style)} stateValue={mouthStyle}/>
-                            ))}
-                        </div>
-                        <div className="field">
-                            <p>SHIRT</p>
-                            <div className="colorPanelWrapper">
-                            <img src={palette}  alt="Custom Color" className='icon-palette' id='openShirtColorPicker' onClick={this.toggleColorPicker}/>
-                            { openShirtColorPicker ?  (<HexColorPicker className='colorPanel' color={shirtColor} onChange={this.onChangeColor.bind(this,'shirtColor')}/>) : null }    
-                                {/* <i className="iconfont icon-color"></i> */}
-                                {/* Color */}
-                                </div>
-                        </div>
-                        <div className="opts" id='shirtStyle' onClick={this.handleClick}>
-                            {this.styleOpts['shirtStyle'].map((style,index) => (
-                               <this.Option key={index} id={style} name={this.capitalize(style)} stateValue={shirtStyle}/>
-                            ))}
-                        </div>
+                        {/* <AvatarAttribute title='SEX' id='sex' styleOpts={this.styleOpts['sex']} stateValue={sex} onClick={this.handleClick}/> */}
+                        <AvatarAttribute title='FACE' id='faceColor' styleOpts={Object.keys(this.styleOpts.faceColor)} optsObj={this.styleOpts.faceColor} stateValue={faceColor} onClick={this.handleClick}
+                            pickerID = 'openFaceColorPicker' onPickerClick={this.toggleColorPicker} pickerType={openFaceColorPicker} colorValue={faceColor} onColorChange={this.onChangeColor.bind(this,'faceColor')}
+                        />
+                        <AvatarAttribute title='HAIR' id='hairStyle' styleOpts={Object.keys(this.styleOpts.hairStyle)} optsObj={this.styleOpts.hairStyle} stateValue={hairStyle} onClick={this.handleClick}
+                            pickerID = 'openHairColorPicker' onPickerClick={this.toggleColorPicker} pickerType={openHairColorPicker} colorValue={hairColor} onColorChange={this.onChangeColor.bind(this,'hairColor')}
+                        />
+                        <AvatarAttribute title='EYES' id='eyeStyle' styleOpts={this.styleOpts['eyeStyle']} stateValue={eyeStyle} onClick={this.handleClick}/>
+                        <AvatarAttribute title='GLASSES' id='glassesStyle' styleOpts={this.styleOpts['glassesStyle']} stateValue={glassesStyle} onClick={this.handleClick}/>
+                        <AvatarAttribute title='EAR' id='earSize' styleOpts={this.styleOpts['earSize']} stateValue={earSize} onClick={this.handleClick}/>
+                        <AvatarAttribute title='NOSE' id='noseStyle' styleOpts={this.styleOpts['noseStyle']} stateValue={noseStyle} onClick={this.handleClick}/>
+                        <AvatarAttribute title='MOUTH' id='mouthStyle' styleOpts={this.styleOpts['mouthStyle']} stateValue={mouthStyle} onClick={this.handleClick}/>
+                        <AvatarAttribute title='SHIRT' id='shirtStyle' styleOpts={this.styleOpts['shirtStyle']} stateValue={shirtStyle} onClick={this.handleClick}
+                            pickerID = 'openShirtColorPicker' onPickerClick={this.toggleColorPicker} pickerType={openShirtColorPicker} colorValue={shirtColor} onColorChange={this.onChangeColor.bind(this,'shirtColor')}
+                        />
                     </div>
                 </div>
             </div>
@@ -216,4 +144,38 @@ export class CustomAvatar extends Component {
     }
 }
 
-export default CustomAvatar
+const mapStateToProps = (state) => {
+    return {
+        avatar : state.avatar.avatarStyle
+    }
+}
+
+export default connect(mapStateToProps)(CustomAvatar)
+
+
+
+// { <div className="field">
+//     <p>HAIR</p>
+//     <div className="colorPanelWrapper">
+//         <img src={palette}  alt="Custom Color" className='icon-palette' id='openHairColorPicker'  onBlur={this.handleBlur} onClick={this.toggleColorPicker}/>
+//         { openHairColorPicker ?  (<HexColorPicker className='colorPanel' id='hairColor' color={hairColor} onChange={this.onChangeColor.bind(this,'hairColor')}/>) : null }                                    
+//     </div>
+// </div>
+// <div className="opts" id='hairStyle' onClick={this.handleClick}>
+//     {Object.keys(this.styleOpts.hairStyle).map((style,index) => (
+//         <this.Option key={index} id={style} name={this.capitalize(this.styleOpts.hairStyle[style])} stateValue={hairStyle}/>
+//     ))}
+// </div> }
+
+// { <div className="field">
+//     <p>SHIRT</p>
+//     <div className="colorPanelWrapper">
+//     <img src={palette}  alt="Custom Color" className='icon-palette' id='openShirtColorPicker' onClick={this.toggleColorPicker}/>
+//     { openShirtColorPicker ?  (<HexColorPicker className='colorPanel' color={shirtColor} onChange={this.onChangeColor.bind(this,'shirtColor')}/>) : null }    
+//         </div>
+// </div>
+// <div className="opts" id='shirtStyle' onClick={this.handleClick}>
+//     {this.styleOpts['shirtStyle'].map((style,index) => (
+//         <this.Option key={index} id={style} name={this.capitalize(style)} stateValue={shirtStyle}/>
+//     ))}
+// </div> }
