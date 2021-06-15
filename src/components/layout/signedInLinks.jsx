@@ -12,22 +12,20 @@ class SignedInLinks extends React.Component{
     }
     
     render(){
-        const { sex,faceColor,earSize,hairColor,hairStyle,eyeStyle,
-            glassesStyle,noseStyle,mouthStyle,shirtStyle,shirtColor} = this.props.avatar
+
         return <div className='signed-in-scaffold navlinks'>
             {/* <div className='neulink navtext'><NavLink to='/'>New Project</NavLink></div> */}
             <div className='neulink navtext'><NavLink to='/'>Log Out</NavLink></div>
-                <Avatar  style={{ width: '50px', height: '50px' }} 
-                    sex={sex} faceColor={faceColor} earSize={earSize} hairColor={hairColor} hairStyle={hairStyle} 
-                        eyeStyle={eyeStyle} glassesStyle={glassesStyle} noseStyle={noseStyle} mouthStyle={mouthStyle} 
-                            shirtStyle={shirtStyle} shirtColor={shirtColor} bgColor='transparent'/>
+                {!(this.props.avatar.isPlaceholder) ? <Avatar  style={{ width: '50px', height: '50px' }} 
+                    {...this.props.avatar} bgColor='transparent'/> : null}
+                
         </div>
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        avatar : state.avatar.avatarStyle
+        avatar : state.avatar
     }
 }
 

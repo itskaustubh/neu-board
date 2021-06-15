@@ -8,7 +8,6 @@ const capitalize = (letter) => {
 
 function Option(props) {
     const {stateValue, id,name} = props 
-    // console.log(stateValue,id)
     return (
             <p id={id} className={`opt ${stateValue === id ? 'active' : ''}`} >{name}</p>
     )

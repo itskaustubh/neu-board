@@ -4,7 +4,7 @@ import { uploadMessage } from '../../store/actions/messageActions'
 import { connect } from 'react-redux'
 
 
-export class UserInfo extends Component {
+class UserInfo extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -21,7 +21,7 @@ export class UserInfo extends Component {
 
     handleSubmit = () => {
         console.log(this.state.name, this.state.message)
-        this.props.uploadMessageAction({name: this.state.name, message : this.state.message})
+        this.props.uploadMessageAction({user: this.state.name, message : this.state.message, avatar: this.props.avatar,date: Date.now()})
     }
 
     render() {
@@ -42,6 +42,13 @@ export class UserInfo extends Component {
 }
 
 
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        avatar : state.avatar
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         uploadMessageAction : (messagePayload) => dispatch(uploadMessage(messagePayload))
@@ -49,4 +56,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default  connect(null, mapDispatchToProps)(UserInfo)
+export default  connect(mapStateToProps, mapDispatchToProps)(UserInfo)

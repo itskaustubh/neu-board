@@ -2,34 +2,34 @@ import React from 'react'
 import Post from './post'
 import './dashboard.scss'
 import { connect } from 'react-redux'
-import { compose } from 'react'
+import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
 // import { withFirestore } from 'react-redux-firebase'
 
-
 // npm install react-redux@5.1.1 react-redux-firebase@2.1.6 redux-firestore@0.5.7 firebase@5.3.0
 
-class Dashboard extends React.Component{
-    render(){
-        console.log(this.props)
-        // const { messages } = this.props 
-        const messages = {}
-        return <div className='dashboard-scaffold'>
+const Dashboard = ({messages}) => {
+        return (<div className='dashboard-scaffold'>
             <div className="dashboard">
-                { messages.map((message,index) => (
-                    <Post key={index} user={message.user} avatar={index} message={message.message} timestamp={message.timestamp} />
+                { messages && messages.map((message,index) => (
+                    <Post key={index} user={message.user} avatar={message.avatar} message={message.message} timestamp={message.timestamp} />
                 ))}
             </div>
-        </div>
-    }
+        </div>);
 }
+
 
 const mapStateToProps = (state) => {
+    // console.log(state)
+    // console.log(state.firestore);
+    const messages = state.firestore.ordered.messages;
+    // console.log(messages)
     return {
-        messages : state.firestore.ordered.messages
-    }
-}
+      messages,
+    };
+  };
 
-// export default connect(mapStateToProps)(Dashboard)
-
-export default firestoreConnect(() => ['messages'])
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect(() => [{collection: 'messages',orderBy : ["date", "desc"] }])
+  )(Dashboard);
