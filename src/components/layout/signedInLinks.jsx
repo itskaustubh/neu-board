@@ -1,7 +1,7 @@
 import React from 'react'
 import './navbar.scss'
 import './signedInLinks.scss'
-import { NavLink, useLocation,Link } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import Avatar from 'react-nice-avatar'
 import { connect } from 'react-redux'
 import postIcon from '../../assets/post.svg'
