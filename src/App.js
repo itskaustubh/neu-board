@@ -3,7 +3,7 @@ import './App.scss';
 import Navbar from './components/layout/navbar'
 import Dashboard from './components/dashboard/dashboard'
 import WriteMessage from './components/projects/writeMessage'
-import { BrowserRouter,Switch,Route } from 'react-router-dom'
+import { Switch,Route } from 'react-router-dom'
 // import { BrowserRouter as Router } from 'react-router-dom'
 import { HashRouter as Router } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
