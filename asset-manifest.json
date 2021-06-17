@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/neuboard/static/css/main.9f1b0581.chunk.css",
-    "main.js": "/neuboard/static/js/main.8f675871.chunk.js",
-    "main.js.map": "/neuboard/static/js/main.8f675871.chunk.js.map",
+    "main.js": "/neuboard/static/js/main.19141c26.chunk.js",
+    "main.js.map": "/neuboard/static/js/main.19141c26.chunk.js.map",
     "runtime-main.js": "/neuboard/static/js/runtime-main.d2fb8585.js",
     "runtime-main.js.map": "/neuboard/static/js/runtime-main.d2fb8585.js.map",
     "static/css/2.f52659b3.chunk.css": "/neuboard/static/css/2.f52659b3.chunk.css",
-    "static/js/2.b14713e8.chunk.js": "/neuboard/static/js/2.b14713e8.chunk.js",
-    "static/js/2.b14713e8.chunk.js.map": "/neuboard/static/js/2.b14713e8.chunk.js.map",
+    "static/js/2.a0aa9314.chunk.js": "/neuboard/static/js/2.a0aa9314.chunk.js",
+    "static/js/2.a0aa9314.chunk.js.map": "/neuboard/static/js/2.a0aa9314.chunk.js.map",
     "index.html": "/neuboard/index.html",
     "static/css/2.f52659b3.chunk.css.map": "/neuboard/static/css/2.f52659b3.chunk.css.map",
     "static/css/main.9f1b0581.chunk.css.map": "/neuboard/static/css/main.9f1b0581.chunk.css.map",
-    "static/js/2.b14713e8.chunk.js.LICENSE.txt": "/neuboard/static/js/2.b14713e8.chunk.js.LICENSE.txt",
+    "static/js/2.a0aa9314.chunk.js.LICENSE.txt": "/neuboard/static/js/2.a0aa9314.chunk.js.LICENSE.txt",
     "static/media/color-palette.f4f249bb.svg": "/neuboard/static/media/color-palette.f4f249bb.svg",
     "static/media/gif-clicked.e11b0607.svg": "/neuboard/static/media/gif-clicked.e11b0607.svg",
     "static/media/gif.eca28f8d.svg": "/neuboard/static/media/gif.eca28f8d.svg",
@@ -20,8 +20,8 @@
   "entrypoints": [
     "static/js/runtime-main.d2fb8585.js",
     "static/css/2.f52659b3.chunk.css",
-    "static/js/2.b14713e8.chunk.js",
+    "static/js/2.a0aa9314.chunk.js",
     "static/css/main.9f1b0581.chunk.css",
-    "static/js/main.8f675871.chunk.js"
+    "static/js/main.19141c26.chunk.js"
   ]
 }
