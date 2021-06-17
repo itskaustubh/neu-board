@@ -25,7 +25,7 @@ const Post = (props) => {
                     isBlank(media) ? null : 
                     <div className="post-media">
                         <Zoom>
-                            <img src={media} alt='Image link broken :/'/> 
+                            <img src={media} alt='Link broken :/'/> 
                         </Zoom>
                     </div>
                 }
