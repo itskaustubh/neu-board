@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css'
 function App() {
   // toast.info('Message sent!',{autoClose : 600000})
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <ToastContainer/>
       <Navbar/>
       <Switch>
