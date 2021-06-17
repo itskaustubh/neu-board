@@ -18,9 +18,9 @@ export class CustomAvatar extends Component {
 
         this.styleOpts = {
             sex : ['man', 'woman'],
-            faceColor : {'#F9C9B6' : 'Light','#AC6651' : 'Dark'},
+            faceColor : {'#F9C9B6' : 'Light','#de937d': 'Brown','#AC6651' : 'Dark'},
             earSize : ['small','big'],
-            hairStyle : {'normal':'Normal', 'thick':'Thick', 'mohawk':'Mohowk', 'womanLong':'Woman Long', 'womanShort':'Woman Short'},
+            hairStyle : {'normal':'Normal', 'thick':'Thick', 'mohawk':'Mohowk', 'womanLong':'Long', 'womanShort':'Short'},
             eyeStyle : ['circle', 'oval', 'smile'],
             glassesStyle : ['none', 'round', 'square'],
             noseStyle : ['short', 'long', 'round'],
@@ -92,7 +92,7 @@ export class CustomAvatar extends Component {
     randomColor = () => "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
 
     generateRandomAvatar = (callType = '') => {
-        if(this.state.showRandomStylesTooltip && callType === 'init') {
+        if(this.state.showRandomStylesTooltip && callType !== 'init') {
             this.setState({showRandomStylesTooltip : false})
         }
         console.log(this.randomVal(this.styleOpts.faceColor))
@@ -113,7 +113,9 @@ export class CustomAvatar extends Component {
     }
 
     componentDidMount() {
-        this.generateRandomAvatar('init')
+        if(this.props.avatar.isPlaceholder === true){
+            this.generateRandomAvatar('init')
+        }
     }
 
     render() {

@@ -14,7 +14,7 @@ const messagesReducer = (state = initState,action) => {
             console.log('Upload Message Error' , action.error)
             break;
         default: 
-            console.log('uncaught switch case')
+            // console.log('uncaught switch case')
     }
     return state
 }

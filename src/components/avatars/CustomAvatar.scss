@@ -14,7 +14,7 @@
 
     .info{
         margin: 20px 20px 0 20px;
-        padding-bottom: 10vh;
+        // padding-bottom: 10vh;
         overflow-y: auto;
         box-sizing: border-box;
         max-height: 100%;
@@ -39,7 +39,7 @@
             display: flex;
             flex-wrap: wrap;
             margin-bottom: 10px;
-            width: 25rem;
+            // width: 25rem;
 
             .opt{
                 // margin: 0 0.65rem 0.75rem 0;
@@ -84,4 +84,19 @@
         display: flex;
     }
 
+}
+
+
+@media only screen and (max-width: 930px) {
+    .custom-avatar-scaffold{
+        width: 50vw;
+        margin: 30px 10px;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .custom-avatar-scaffold{
+        width: 90vw;
+        margin: 30px 10px;
+    }
 }

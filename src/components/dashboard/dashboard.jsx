@@ -4,20 +4,42 @@ import './dashboard.scss'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
-// import { withFirestore } from 'react-redux-firebase'
+import {toast} from 'react-toastify'
 
-// npm install react-redux@5.1.1 react-redux-firebase@2.1.6 redux-firestore@0.5.7 firebase@5.3.0
 
-const Dashboard = ({messages}) => {
-        return (<div className='dashboard-scaffold'>
-            <div className="dashboard">
-                { messages && messages.map((message,index) => (
-                    <Post key={index} user={message.user} avatar={message.avatar} message={message.message} timestamp={message.timestamp} />
-                ))}
-            </div>
-        </div>);
+var dateNow = Date.now()
+
+const isNewMsg = (message) => {
+  if(message.date > dateNow && localStorage.getItem('username') !== message.user ){
+    console.log('NEW POST')
+    console.log(message)
+    toast.info(`New message from ${message.user}!`)
+    dateNow = Date.now()
+  }
 }
 
+const Dashboard = ({messages}) => {
+        if(messages && messages.length > 0){
+          isNewMsg(messages[0])
+        }
+        return (
+          <div className='dashboard-scaffold'>
+            <div className='dashboard-posts hide-scrollbar'>
+                <div className="dashboard">
+                    { messages && messages.map((message,index) => (
+                        <Post key={index} message={message} />
+                    ))}
+                </div>
+            </div>
+            <div className="dashboard-welcome">
+              <p id='text-welcome'>welcome to neuboard!</p>
+              <p id='text-whatisthis'>Post a message, meme or a random thought.</p>
+              <p id='text-madewith'>Made with 🖤 using React and Firebase</p> 
+            </div>
+          </div>
+          
+        );
+}
 
 const mapStateToProps = (state) => {
     // console.log(state)
@@ -27,7 +49,7 @@ const mapStateToProps = (state) => {
     return {
       messages,
     };
-  };
+};
 
 export default compose(
     connect(mapStateToProps),

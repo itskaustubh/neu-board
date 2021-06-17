@@ -39,11 +39,25 @@
         .post-message{
             margin : 5px 0;
             font-size : 15px;
+            overflow-wrap: break-word;
+        }
+
+        .post-media{
+            text-align: center;  
+            background: aliceblue;
         }
 
         .post-time{
+            margin-top: 5px;
             text-align: right;
             font-size: 14px;
         }
+    }
+}
+
+
+@media only screen and (max-width: 580px) {
+    .post{
+        width: 95vw;
     }
 }

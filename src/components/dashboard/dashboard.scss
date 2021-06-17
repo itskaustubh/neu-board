@@ -1,3 +1,46 @@
+
 .dashboard-scaffold{
-    margin: 30px 0 0 200px;
+    display: flex;
 }
+.dashboard-posts{
+    margin: 0 0 0 200px;
+    width: max-content;
+    overflow-y: auto;
+    height: 88vh;
+    padding: 30px 20px 0 0;
+}
+
+.dashboard-welcome{
+    align-self: center;
+    margin : auto;
+    text-align: center;
+
+    #text-welcome{
+        font-size: 32px;
+    }
+    #text-whatisthis{
+        font-size: 16px;
+    }
+    #text-madewith{
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .dashboard-posts{
+        margin: 0;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .dashboard-posts{
+        margin: auto;
+    }
+    .dashboard-welcome{
+        display: none;
+    }
+}
+

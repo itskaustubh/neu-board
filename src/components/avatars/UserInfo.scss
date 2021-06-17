@@ -11,7 +11,7 @@
             padding: 20px;
     
             .form-input{
-                width: 350px;
+                width: 95%;
                 height: 35px;
                 border: none;
                 border-radius: 1rem;
@@ -22,12 +22,18 @@
                 font-family: inherit;
                 color: var(--greyDark);
                 margin-bottom: 20px;
+                animation: boxShadowFadeOut 0.4s ease;
             
-                &::placeholder { color: var(--greyLight-3); }
-                &:focus { outline: none; box-shadow: var(--shadow); }
+                &::placeholder { color: var(--greyLight-3);  }
+                &:focus { 
+                    outline: none; 
+                    box-shadow: var(--shadow); 
+                    animation: boxShadowFade 0.4s ease;
+                }
             }
 
             .button-container{
+                position: relative;
                 display: flex;
                 justify-content: center;
             }
@@ -35,7 +41,23 @@
     
         textarea{
             height: 10rem !important;
-            max-width: 350px;   
+            // max-width: 350px;   
             resize : none;
         }
     }
+
+
+@media only screen and (max-width: 930px) {
+    .name-message-scaffold{
+        // margin : 0;
+        width: 50vw;
+        margin: 30px 10px;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .name-message-scaffold{
+        margin : 0 0 10px 0;
+        width: 90vw;
+    }
+}

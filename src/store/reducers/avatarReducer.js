@@ -3,13 +3,13 @@
 //                 glassesStyle : 'round',noseStyle : 'short',mouthStyle : 'smile',shirtStyle : 'hoody',shirtColor : 'turquoise',
 // } 
 
-const avatarReducer = (state = {isPlaceholder : true},action) => {
+const avatarReducer = (state = {isPlaceholder : true, hairColorRandom:true},action) => {
     switch(action.type){
         case 'UPDATE_AVATAR' : 
             console.log('update avatar' , {...state, ...action.avatarStyle })
             return {...state, ...action.avatarStyle }
         default: 
-            console.log('uncaught switch case')
+            // console.log('uncaught switch case')
     }
     return state
 }

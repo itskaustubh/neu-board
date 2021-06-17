@@ -1,21 +1,25 @@
 import React from 'react'
 import './navbar.scss'
 import SignedInLinks from './signedInLinks'
-// import SignedOutLinks from './signedOutLinks'
+import { NavLink,useLocation } from 'react-router-dom'
+const Navbar = () => {
+    const location = useLocation();
+    // console.log(location.pathname);
 
-class Navbar extends React.Component{
-    
-    render(){
-        return <div className='nav-scaffold'>
-            <div className='nav-container'>
-                <div className="logo">Logo</div>
-                <div className="nav-links">
-                    <SignedInLinks/>
-                    {/* <SignedOutLinks/> */}
-                </div>
+    return (
+    <div className='nav-scaffold'>
+        <div className='nav-container'>
+            <div className="logo">
+                <NavLink to='/'>
+                    <span className='logo-neu'>neu</span> 
+                    <span className='logo-board'>board</span> 
+                </NavLink>
+            </div>
+            <div className="nav-links">
+                <SignedInLinks/>
             </div>
         </div>
-    }
+    </div>)
 }
 
 export default Navbar

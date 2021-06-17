@@ -10,8 +10,24 @@
         justify-content: space-between;
         padding: 8px;
 
+        .logo{
+            font-family: 'Righteous', cursive;
+            font-size: 32px;
+            cursor: pointer;
+
+
+            .logo-neu{
+                color: plum;
+            }
+
+            .logo-board{
+                color: gray;
+            }
+        }
+
         .nav-links{
             display: flex;
+            font-family: 'Poppins', sans-serif;
         }
     }
 }

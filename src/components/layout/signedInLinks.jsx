@@ -1,26 +1,30 @@
 import React from 'react'
 import './navbar.scss'
 import './signedInLinks.scss'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import Avatar from 'react-nice-avatar'
 import { connect } from 'react-redux'
 
-class SignedInLinks extends React.Component{
 
-    constructor(props){
-        super()
-    }
-    
-    render(){
+const SignedInLinks = (props) => {
 
-        return <div className='signed-in-scaffold navlinks'>
-            {/* <div className='neulink navtext'><NavLink to='/'>New Project</NavLink></div> */}
-            <div className='neulink navtext'><NavLink to='/'>Log Out</NavLink></div>
-                {!(this.props.avatar.isPlaceholder) ? <Avatar  style={{ width: '50px', height: '50px' }} 
-                    {...this.props.avatar} bgColor='transparent'/> : null}
-                
-        </div>
-    }
+    const location = useLocation();
+    // console.log(location.pathname);
+
+        return (
+            <div className='signed-in-scaffold navlinks'>
+                <div className='neulink navtext'>
+                    { location.pathname === '/' ? 
+                            <NavLink to='/add'>Post A Message!</NavLink> : null
+                    }
+                    { location.pathname === '/add' ? 
+                            <NavLink to='/'>Back to Dashboard</NavLink> : null
+                    }
+                </div>
+                    {!(props.avatar.isPlaceholder) ? <Avatar  style={{ width: '50px', height: '50px' }} 
+                        {...props.avatar} bgColor='transparent'/> : null}
+            </div>
+        )
 }
 
 const mapStateToProps = (state) => {
