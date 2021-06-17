@@ -131,7 +131,7 @@ export class CustomAvatar extends Component {
             openShirtColorPicker,openFaceColorPicker,showRandomStylesTooltip} = this.state
         return (
             <div className='custom-avatar-scaffold'>
-                <div className='custom-avatar-container'>
+                <div className='custom-avatar-container no-select'>
                     {
                         (showRandomStylesTooltip) ? (<p style={{textAlign : 'center',fontSize:'13px'}}>Click avatar to generate random styles</p>) : null
                     }    

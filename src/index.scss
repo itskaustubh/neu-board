@@ -14,7 +14,7 @@ body {
 }
 
 // https://stackoverflow.com/a/67373942
-*{
+.no-select{
     -webkit-user-select: none;    /* Safari */
     -webkit-touch-callout: none;  /* iOS Safari */
     -khtml-user-select: none;     /* Konqueror HTML */
@@ -86,11 +86,11 @@ label{
 }
 
 .hide-scrollbar{
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 
   &::-webkit-scrollbar{
-    display: none;
+    display: none !important;
   }
 }
 
@@ -118,7 +118,7 @@ label{
 .neulink{
   color: var(--primary);
   cursor: pointer;
-  width: min-content;
+  // width: min-content;
   text-align: end;
 
   &:hover, &:active{

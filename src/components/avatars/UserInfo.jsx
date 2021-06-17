@@ -4,6 +4,9 @@ import { uploadMessage } from '../../store/actions/messageActions'
 import { connect } from 'react-redux'
 import SubmitButton from './SubmitButton';
 import {toast} from 'react-toastify'
+import ReactGiphySearchbox from 'react-giphy-searchbox'
+import gifSVG from '../../assets/gif.svg'
+import gifSVGClicked from '../../assets/gif-clicked.svg'
 
 class UserInfo extends Component {
     constructor(props){
@@ -13,6 +16,7 @@ class UserInfo extends Component {
             message : '',
             media : '',
             infoFilled : false,
+            gifToggle : false
         }
         // this.info = {
         //     name : '',
@@ -58,6 +62,7 @@ class UserInfo extends Component {
         const {media, infoFilled} = this.state
         this.setState({infoFilled: false})
         if(infoFilled){
+            toast.info('Message is being submitted',{autoClose : 2500})
             if(this.isBlank(media)){
                 this.submitDataToFireStore()
             }else{
@@ -86,22 +91,61 @@ class UserInfo extends Component {
         }
     }
 
+    handleGIFSelect = (gif) => {
+
+        console.log(gif)
+        this.setState({media : gif.images.fixed_height.url})
+    }
+
+
+    handleGIFBlur = () => {
+        console.log('blurred')
+        setTimeout(() => this.setState({gifToggle : false}), 1100)
+        // 
+    }
+
+    handleGIFToggle= () => {
+        this.setState({gifToggle : !this.state.gifToggle})
+    }
+
+
     render() {
+        const { name,message,media,infoFilled,gifToggle} = this.state
         return (
             <div className='name-message-scaffold'>
                 <div className="name-message-container">
-                    <label  htmlFor='input-name'> <span>Name</span><span>*</span></label>
-                    <input type="text" value={this.state.name} maxLength="30"  id='input-name' className="form-input user-selectable" onChange={this.handleInput.bind(this,'name')}></input>
-                    <label  htmlFor='input-media'> <p>Image Link</p></label>
-                    <input type="text" value={this.state.media} id='input-media' className="form-input user-selectable" onChange={this.handleInput.bind(this,'media')}></input>
-                    <label htmlFor='input-message'><span>Message</span><span>*</span></label>
-                    <textarea id='input-message' value={this.state.message} maxLength="160" className="form-input user-selectable" onChange={this.handleInput.bind(this,'message')}></textarea>
-                    <div className='button-container'>
-                        {/* <div className='neu-button' onClick={this.handleSubmit}>Submit</div> */}
-                        <SubmitButton onClick={this.handleSubmit} infoFilled={this.state.infoFilled}/>
-                    </div>
+                    {/* <form onSubmit={this.handleSubmit}> */}
+                        <label  htmlFor='input-name'> <span>Name</span><span>*</span></label>
+                        <input type="text" value={name} maxLength="30"  id='input-name' className="form-input user-selectable" onChange={this.handleInput.bind(this,'name')}></input>
+                        
+                        <label  htmlFor='input-media'> <p>Image Link</p></label>
+                        <div className='input-container'>
+                            <div className='giphy-container' onBlur = {this.handleGIFBlur}>
+                                {
+                                    gifToggle ? <ReactGiphySearchbox
+                                                apiKey="5qq9RvhQDJlcqQcoUxtFdcaK3OpqKPGE" 
+                                                onSelect={this.handleGIFSelect}
+                                                wrapperClassName = 'giphy-container'
+                                                autoFocus = {true}
+                                                rating = 'r'
+                                            /> : null
+                                }
+                                
+                            </div>
+                            <input type="text" value={media} id='input-media' className="form-input user-selectable" onChange={this.handleInput.bind(this,'media')}></input>
+                            <div id='gif-toggle' onClick={this.handleGIFToggle}>
+                                <img  src={gifToggle? gifSVGClicked : gifSVG} alt="GIF" />
+                            </div>
+                        </div>
+                        <label htmlFor='input-message'><span>Message</span><span>*</span></label>
+                        <textarea id='input-message' value={message} maxLength="160" className="form-input user-selectable" onChange={this.handleInput.bind(this,'message')}></textarea>
+                        <div className='button-container no-select'>
+                            {/* <div className='neu-button' onClick={this.handleSubmit}>Submit</div> */}
+                            <SubmitButton onClick={this.handleSubmit} infoFilled={infoFilled}/>
+                        </div>
+                    {/* </form> */}
                 </div>
-            </div>
+            </div>  
         )
     }
 }

@@ -1,6 +1,6 @@
 {
   "name": "neu-board",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -12,6 +12,7 @@
     "react": "^17.0.2",
     "react-colorful": "^5.2.2",
     "react-dom": "^17.0.2",
+    "react-giphy-searchbox": "^1.5.4",
     "react-medium-image-zoom": "^4.3.4",
     "react-nice-avatar": "1.1.2",
     "react-redux": "^7.2.4",

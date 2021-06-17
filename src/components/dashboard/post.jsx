@@ -19,7 +19,7 @@ const Post = (props) => {
             {/* <div className="post-avatar"> */}
             {/* </div> */}
             <div className="post-content">
-                <div className="post-title"><p>{user}</p></div>
+                <div className="post-title no-select"><p>{user}</p></div>
                 <div className="post-message user-selectable">{message}</div>
                 {
                     isBlank(media) ? null : 

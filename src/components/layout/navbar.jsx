@@ -2,6 +2,7 @@ import React from 'react'
 import './navbar.scss'
 import SignedInLinks from './signedInLinks'
 import { NavLink,useLocation } from 'react-router-dom'
+
 const Navbar = () => {
     const location = useLocation();
     // console.log(location.pathname);

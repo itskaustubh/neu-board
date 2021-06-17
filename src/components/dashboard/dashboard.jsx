@@ -31,10 +31,10 @@ const Dashboard = ({messages}) => {
                     ))}
                 </div>
             </div>
-            <div className="dashboard-welcome">
+            <div className="dashboard-welcome no-select">
               <p id='text-welcome'>welcome to neuboard!</p>
               <p id='text-whatisthis'>Post a message, meme or a random thought.</p>
-              <p id='text-madewith'>Made with 🖤 using React and Firebase</p> 
+              <p id='text-madewith'>Made with 💜 using React and Firebase</p> 
             </div>
           </div>
           

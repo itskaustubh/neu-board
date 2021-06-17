@@ -1,9 +1,10 @@
 import React from 'react'
 import './navbar.scss'
 import './signedInLinks.scss'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation,Link } from 'react-router-dom'
 import Avatar from 'react-nice-avatar'
 import { connect } from 'react-redux'
+import postIcon from '../../assets/post.svg'
 
 
 const SignedInLinks = (props) => {
@@ -14,15 +15,22 @@ const SignedInLinks = (props) => {
         return (
             <div className='signed-in-scaffold navlinks'>
                 <div className='neulink navtext'>
-                    { location.pathname === '/' ? 
-                            <NavLink to='/add'>Post A Message!</NavLink> : null
+                    {/* <img src={postIcon} alt="" /> */}
+                    { location.pathname === '/' &&  props.avatar.isPlaceholder? 
+                            <NavLink to='/add'><img id='post-message' src={postIcon} alt="" /></NavLink>  
+                            : null
+                            
                     }
-                    { location.pathname === '/add' ? 
+                    {/* { location.pathname === '/add' ? 
                             <NavLink to='/'>Back to Dashboard</NavLink> : null
-                    }
+                    } */}
                 </div>
-                    {!(props.avatar.isPlaceholder) ? <Avatar  style={{ width: '50px', height: '50px' }} 
-                        {...props.avatar} bgColor='transparent'/> : null}
+                    {!(props.avatar.isPlaceholder) ? 
+                        <NavLink to={location.pathname=== '/' ? '/add' : '/'}>
+                            <Avatar className='avatar-link' style={{ width: '50px', height: '50px' }} 
+                            {...props.avatar} bgColor='transparent'/>
+                        </NavLink>
+                                : null}
             </div>
         )
 }

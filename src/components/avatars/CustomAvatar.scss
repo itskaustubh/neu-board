@@ -56,6 +56,8 @@
                 box-shadow: inset 0px 0px 4px rgba(255, 255, 255, .2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0);
                 transition: box-shadow .4s ease;
                 cursor: pointer;
+                transition: box-shadow 0.5s ease-in-out;
+
 
             }
 
