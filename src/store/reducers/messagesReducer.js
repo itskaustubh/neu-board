@@ -11,7 +11,13 @@ const messagesReducer = (state = initState,action) => {
             console.log('uploaded message' , action.messagePayload)
             break;
         case 'UPLOAD_MESSAGE_ERROR' : 
-            console.log('Upload Message Error' , action.error)
+            console.log('Upload Message Error' , action.err)
+            break;
+        case 'MOD_ACTION' : 
+            console.log('Mod action successful' , action.subtype)
+            break;
+        case 'MOD_ACTION_ERROR' : 
+            console.log('Mod action failed' , action.subtype, action.err)
             break;
         default: 
             // console.log('uncaught switch case')

@@ -5,26 +5,45 @@
 .dashboard-posts{
     margin: 0 0 0 200px;
     width: max-content;
-    overflow-y: auto;
+    overflow : visible ;
+    overflow-y: auto !important;
     height: 88vh;
     padding: 30px 20px 0 0;
 }
 
-.dashboard-welcome{
+.dashboard-welcome-scaffold{
     align-self: center;
     margin : auto;
-    text-align: center;
 
-    #text-welcome{
-        font-size: 32px;
+    .dashboard-welcome{
+        text-align: center;
+
+        #text-welcome{
+            font-size: 32px;
+        }
+        #text-whatisthis{
+            font-size: 16px;
+        }
+        #text-madewith{
+            font-size: 14px;
+        }
+
+        #input-password{
+            margin-top : 10px;
+            text-align: center 
+        }
     }
-    #text-whatisthis{
-        font-size: 16px;
-    }
-    #text-madewith{
-        font-size: 14px;
-    }
+
 }
+.admin-login-text{
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0 10px 5px 0;
+}
+
+
 
 @media only screen and (max-width: 1150px) {
     .dashboard-posts{

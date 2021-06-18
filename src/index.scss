@@ -13,6 +13,8 @@ body {
   overflow-y: hidden;
 }
 
+
+
 // https://stackoverflow.com/a/67373942
 .no-select{
     -webkit-user-select: none;    /* Safari */
@@ -124,8 +126,28 @@ label{
   &:hover, &:active{
     color: var(--primary-dark);
   }
+}
 
+.form-input{
+  // width: 95%;
+  height: 35px;
+  border: none;
+  border-radius: 1rem;
+  font-size: 16px;            
+  padding-left: 1.4rem;
+  box-shadow: var(--inner-shadow);
+  background: none;
+  font-family: inherit;
+  color: var(--greyDark);
+  margin-bottom: 20px;
+  animation: boxShadowFadeOut 0.4s ease;
 
+  &::placeholder { color: var(--greyLight-3);  }
+  &:focus { 
+      outline: none; 
+      box-shadow: var(--shadow); 
+      animation: boxShadowFade 0.4s ease;
+  }
 }
 
 // .navtext {

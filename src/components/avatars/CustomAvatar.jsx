@@ -176,31 +176,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(CustomAvatar)
-
-
-
-// { <div className="field">
-//     <p>HAIR</p>
-//     <div className="colorPanelWrapper">
-//         <img src={palette}  alt="Custom Color" className='icon-palette' id='openHairColorPicker'  onBlur={this.handleBlur} onClick={this.toggleColorPicker}/>
-//         { openHairColorPicker ?  (<HexColorPicker className='colorPanel' id='hairColor' color={hairColor} onChange={this.onChangeColor.bind(this,'hairColor')}/>) : null }                                    
-//     </div>
-// </div>
-// <div className="opts" id='hairStyle' onClick={this.handleClick}>
-//     {Object.keys(this.styleOpts.hairStyle).map((style,index) => (
-//         <this.Option key={index} id={style} name={this.capitalize(this.styleOpts.hairStyle[style])} stateValue={hairStyle}/>
-//     ))}
-// </div> }
-
-// { <div className="field">
-//     <p>SHIRT</p>
-//     <div className="colorPanelWrapper">
-//     <img src={palette}  alt="Custom Color" className='icon-palette' id='openShirtColorPicker' onClick={this.toggleColorPicker}/>
-//     { openShirtColorPicker ?  (<HexColorPicker className='colorPanel' color={shirtColor} onChange={this.onChangeColor.bind(this,'shirtColor')}/>) : null }    
-//         </div>
-// </div>
-// <div className="opts" id='shirtStyle' onClick={this.handleClick}>
-//     {this.styleOpts['shirtStyle'].map((style,index) => (
-//         <this.Option key={index} id={style} name={this.capitalize(style)} stateValue={shirtStyle}/>
-//     ))}
-// </div> }

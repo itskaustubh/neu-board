@@ -4,8 +4,9 @@
     display: flex;
     position: relative;
     margin-bottom: 20px;
+    animation: push-posts 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    .post-line{
+    .post-line{  
         border-left: 1.5px solid var(--greyLight-3);
         position: absolute;
         top: 0;
@@ -32,9 +33,26 @@
         border-radius: 15px;
         padding: 10px;
 
-        .post-title p{
-            color: var(--primary);
+        .post-header{
+            display: flex;
+            justify-content: space-between;
+
+            .post-title p{
+                color: var(--primary);
+            }
+
+            .post-mod-actions{
+                img{
+                    cursor: pointer;
+                }
+
+                img{
+                    width : 24px;
+                    margin : 2px;
+                }
+            }
         }
+
 
         .post-message{
             margin : 5px 0;
@@ -52,6 +70,18 @@
             text-align: right;
             font-size: 14px;
         }
+    }
+}
+
+@keyframes push-posts{
+    0%{
+        right: 100px;
+    }
+    60%{
+        right: -20px;
+    }
+    100%{
+        right: 0px;
     }
 }
 
