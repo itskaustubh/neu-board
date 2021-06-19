@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/neuboard/static/css/main.89128afe.chunk.css",
+    "main.css": "/neuboard/static/css/main.da0068fb.chunk.css",
     "main.js": "/neuboard/static/js/main.0c88540d.chunk.js",
     "main.js.map": "/neuboard/static/js/main.0c88540d.chunk.js.map",
     "runtime-main.js": "/neuboard/static/js/runtime-main.d2fb8585.js",
@@ -10,7 +10,7 @@
     "static/js/2.de3199b6.chunk.js.map": "/neuboard/static/js/2.de3199b6.chunk.js.map",
     "index.html": "/neuboard/index.html",
     "static/css/2.f52659b3.chunk.css.map": "/neuboard/static/css/2.f52659b3.chunk.css.map",
-    "static/css/main.89128afe.chunk.css.map": "/neuboard/static/css/main.89128afe.chunk.css.map",
+    "static/css/main.da0068fb.chunk.css.map": "/neuboard/static/css/main.da0068fb.chunk.css.map",
     "static/js/2.de3199b6.chunk.js.LICENSE.txt": "/neuboard/static/js/2.de3199b6.chunk.js.LICENSE.txt",
     "static/media/approve.e88ced02.svg": "/neuboard/static/media/approve.e88ced02.svg",
     "static/media/color-palette.f4f249bb.svg": "/neuboard/static/media/color-palette.f4f249bb.svg",
@@ -23,7 +23,7 @@
     "static/js/runtime-main.d2fb8585.js",
     "static/css/2.f52659b3.chunk.css",
     "static/js/2.de3199b6.chunk.js",
-    "static/css/main.89128afe.chunk.css",
+    "static/css/main.da0068fb.chunk.css",
     "static/js/main.0c88540d.chunk.js"
   ]
 }
