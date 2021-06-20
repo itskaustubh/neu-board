@@ -94,13 +94,13 @@ class UserInfo extends Component {
     handleGIFSelect = (gif) => {
 
         console.log(gif)
-        this.setState({media : gif.images.fixed_height.url})
+        this.setState({media : gif.images.fixed_height.url}, () => this.setState({gifToggle : false}))
     }
 
 
     handleGIFBlur = () => {
         console.log('blurred')
-        setTimeout(() => this.setState({gifToggle : false}), 1100)
+        setTimeout(() => this.setState({gifToggle : false}), 200)
         // 
     }
 

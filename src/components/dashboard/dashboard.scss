@@ -4,43 +4,11 @@
 }
 .dashboard-posts{
     margin: 0 0 0 200px;
-    width: max-content;
+    width: 100%;
     overflow : visible ;
     overflow-y: auto !important;
     height: 88vh;
     padding: 30px 20px 0 0;
-}
-
-.dashboard-welcome-scaffold{
-    align-self: center;
-    margin : auto;
-
-    .dashboard-welcome{
-        text-align: center;
-
-        #text-welcome{
-            font-size: 32px;
-        }
-        #text-whatisthis{
-            font-size: 16px;
-        }
-        #text-madewith{
-            font-size: 14px;
-        }
-
-        #input-password{
-            margin-top : 10px;
-            text-align: center 
-        }
-    }
-
-}
-.admin-login-text{
-    font-size: 14px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 0 10px 5px 0;
 }
 
 
@@ -52,17 +20,9 @@
 }
 
 
-
-
 @media only screen and (max-width: 768px) {
     .dashboard-posts{
         margin: auto;
-    }
-    .dashboard-welcome{
-        display: none;
-    }
-    .admin-login-text{
-        display: none;
     }
 }
 

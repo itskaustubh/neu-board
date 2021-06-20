@@ -4,7 +4,7 @@ import './signedInLinks.scss'
 import { NavLink, useLocation } from 'react-router-dom'
 import Avatar from 'react-nice-avatar'
 import { connect } from 'react-redux'
-import postIcon from '../../assets/post.svg'
+import drawIcon from '../../assets/draw.svg'
 
 
 const SignedInLinks = (props) => {
@@ -16,8 +16,12 @@ const SignedInLinks = (props) => {
             <div className='signed-in-scaffold navlinks'>
                 <div className='neulink navtext'>
                     {/* <img src={postIcon} alt="" /> */}
-                    { location.pathname === '/' &&  props.avatar.isPlaceholder? 
-                            <NavLink to='/add'><img id='post-message' src={postIcon} alt="" /></NavLink>  
+                    { location.pathname !== '/add' &&  props.avatar.isPlaceholder? 
+                            <NavLink to='/add'>
+                                <div id="goto-avatar">
+                                    <img src={drawIcon} alt="New Post" />
+                                    </div>    
+                            </NavLink>  
                             : null
                             
                     }
@@ -26,7 +30,7 @@ const SignedInLinks = (props) => {
                     } */}
                 </div>
                     {!(props.avatar.isPlaceholder) ? 
-                        <NavLink to={location.pathname=== '/' ? '/add' : '/'}>
+                        <NavLink to={location.pathname !== '/add' ? '/add' : window.innerWidth < 768 ? 'dashboard' :    '/'}>
                             <Avatar className='avatar-link' style={{ width: '50px', height: '50px' }} 
                             {...props.avatar} bgColor='transparent'/>
                         </NavLink>

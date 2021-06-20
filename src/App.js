@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.scss';
 import Navbar from './components/layout/navbar'
+import Home from './components/dashboard/Home'
 import Dashboard from './components/dashboard/dashboard'
 import WriteMessage from './components/projects/writeMessage'
 import { Switch,Route } from 'react-router-dom'
@@ -18,8 +19,9 @@ function App() {
       <ToastContainer/>
       <Navbar/>
       <Switch>
-        <Route exact path='/' component={Dashboard}/>
+        <Route exact path='/' component={Home}/>
         <Route exact path='/add' component={WriteMessage}/>
+        <Route exact path='/dashboard' component={Dashboard}/>
       </Switch>
     </Router>
   );

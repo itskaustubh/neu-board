@@ -3,11 +3,16 @@
 //                 glassesStyle : 'round',noseStyle : 'short',mouthStyle : 'smile',shirtStyle : 'hoody',shirtColor : 'turquoise',
 // } 
 
-const avatarReducer = (state = {isPlaceholder : true, hairColorRandom:true},action) => {
+const avatarHistory = localStorage.getItem('AVATAR')
+const initState = avatarHistory ? JSON.parse(avatarHistory) : {isPlaceholder : true, hairColorRandom:true}
+
+const avatarReducer = (state = initState,action) => {
     switch(action.type){
         case 'UPDATE_AVATAR' : 
-            console.log('update avatar' , {...state, ...action.avatarStyle })
-            return {...state, ...action.avatarStyle }
+            const newAvatar = {...state, ...action.avatarStyle } 
+            console.log('update avatar' , newAvatar)
+            localStorage.setItem('AVATAR', JSON.stringify(newAvatar))
+            return newAvatar
         default: 
             // console.log('uncaught switch case')
     }
