@@ -30,7 +30,7 @@ const SignedInLinks = (props) => {
                     } */}
                 </div>
                     {!(props.avatar.isPlaceholder) ? 
-                        <NavLink to={location.pathname !== '/add' ? '/add' : window.innerWidth < 768 ? 'dashboard' :    '/'}>
+                        <NavLink to={location.pathname !== '/add' ? '/add' : '/'}>
                             <Avatar className='avatar-link' style={{ width: '50px', height: '50px' }} 
                             {...props.avatar} bgColor='transparent'/>
                         </NavLink>

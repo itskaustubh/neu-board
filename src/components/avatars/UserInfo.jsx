@@ -62,7 +62,7 @@ class UserInfo extends Component {
         const {media, infoFilled} = this.state
         this.setState({infoFilled: false})
         if(infoFilled){
-            toast.info('Message is being submitted',{autoClose : 2500})
+            // toast.info('Message is being submitted',{autoClose : 2500})
             if(this.isBlank(media)){
                 this.submitDataToFireStore()
             }else{

@@ -18,42 +18,48 @@ const isNewMsg = (message) => {
 
 
 class Dashboard extends React.Component {
-        constructor(props){
-          super(props)
-        }
-
-        componentDidUpdate() {
+        // constructor(props){
+        //   super(props)
+        // }
+ 
+        componentDidUpdate() {  
           const messages = this.props.messages
           if(messages && messages.length > 0){
             isNewMsg(messages[0])
           }
         }
 
+        shouldComponentUpdate(nextProps, nextState){
+          console.log('should update?')
+          console.log(nextProps)
+          return true
+        }
+
 
         render() {
           // console.log(this.props)
-          const messages = this.props.messages
-          const isAuth = this.props.isAuth
+          const {messages,isAuth} = this.props
+          console.log(messages)
           return (
-            <div className='dashboard-scaffold'>
-              <div className='dashboard-posts hide-scrollbar'>
-                  <div className="dashboard">
-                      { messages && messages.map((message,index) => (
-                          <Post key={message.id} message={message} isAuth={isAuth}/>
-                      ))}
-                  </div>
-              </div>
-            </div>
+              <div className='dashboard-scaffold'>
+                <div className='dashboard-posts hide-scrollbar'>
+                    <div className="dashboard">
+                        { messages && messages.map((message,index) => (
+                            <Post key={message.id} message={message} isAuth={isAuth}/>
+                        ))}
+                    </div>
+                </div>
+              </div> 
             
           );
         }
 }
 
 const mapStateToProps = (state) => {
-  // console.log(state)
+  console.log(state)
   // console.log(state.firestore);
   const messages = state.firestore.ordered.messages;
-  const isAuth     = state.auth.isAuth
+  const isAuth     = state.store.isAuth
   // console.log(messages)
   return {
     messages,

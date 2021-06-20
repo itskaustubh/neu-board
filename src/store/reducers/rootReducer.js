@@ -3,13 +3,13 @@ import {firebaseReducer} from "react-redux-firebase";
 import {firestoreReducer} from "redux-firestore";
 import messagesReducer from './messagesReducer'
 import avatarReducer from './avatarReducer'
-import authReducer from './authReducer'
+import storeReducer from './storeReducer'
 
 
 const rootReducer = combineReducers({
     messages : messagesReducer,
     avatar   : avatarReducer,
-    auth : authReducer,
+    store : storeReducer,
     firebase: firebaseReducer,
     firestore: firestoreReducer
 });

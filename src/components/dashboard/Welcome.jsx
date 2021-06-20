@@ -3,8 +3,8 @@ import AdminAuth from './AdminAuth'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
-import {updateAuth} from '../../store/actions/authActions'
-import { NavLink } from 'react-router-dom'
+import {updateAuth,updateWelcomeDisplayedOnce} from '../../store/actions/storeActions'
+
 import './Welcome.scss'
 
 export class Welcome extends Component {
@@ -28,6 +28,11 @@ export class Welcome extends Component {
         this.props.updateAuthAction({isAuth : false})
       }
 
+    handleWelcomeStateUpdate = () => {
+      this.props.updateWelcomeAction({welcomeDisplayedOnce : true})
+    }
+
+
 
     render() {
         const {showAuthInput} = this.state
@@ -37,9 +42,7 @@ export class Welcome extends Component {
                     <p id='text-welcome'>welcome to neuboard!</p>
                     <p id='text-whatisthis'>Post a message, meme or a random thought.</p>
                     <p id='text-madewith'>Made with 💜 using React and Firebase</p> 
-                    <NavLink to='/dashboard'>
-                      <div id='goto-dashboard' className="neu-button">Go to Dashboard</div>
-                    </NavLink>
+                    <div id='goto-dashboard' className="neu-button" onClick={this.handleWelcomeStateUpdate}>Go to Dashboard</div>
                     <AdminAuth isVisible={showAuthInput} onAuthenticated={this.handleAuthSuccess}/>
                   </div>
                   <div className="admin-login-container">
@@ -54,7 +57,7 @@ export class Welcome extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const isAuth     = state.auth.isAuth
+  const isAuth     = state.store.isAuth
   return {
     isAuth
   };
@@ -62,7 +65,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      updateAuthAction : (newAuthState) => dispatch(updateAuth(newAuthState))
+      updateAuthAction : (newAuthState) => dispatch(updateAuth(newAuthState)),
+      updateWelcomeAction : (newWelcomeState) => dispatch(updateWelcomeDisplayedOnce(newWelcomeState))
   }
 }
 

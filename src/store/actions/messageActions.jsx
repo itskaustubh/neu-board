@@ -8,7 +8,7 @@ const uploadMessage = (messagePayload) => {
             ...messagePayload
         }).then((response) => {
             console.log(response.id)
-            toast.success('Message sent!',{autoClose : 6000})
+            toast.success('Message sent!',{autoClose : 4000})
             dispatch({ type : "UPLOAD_MESSAGE", messagePayload })
         }).catch((err) => {
             dispatch({ type : "UPLOAD_MESSAGE_ERROR", err })
@@ -24,7 +24,7 @@ const approveMessage = (messagePayload) => {
         firestore.collection('messages').doc(messagePayload.id).update({
             approved : true
         }).then(() => {
-            toast.success('Message approved!',{autoClose : 6000})
+            // toast.success('Message approved!',{autoClose : 6000})
             dispatch({ type : "MOD_ACTION",subtype : 'APPROVE', messagePayload })
         }).catch((err) => {
             dispatch({ type : "MOD_ACTION_ERROR", subtype : 'APPROVE',  err })
@@ -38,7 +38,8 @@ const deleteMessage = (messagePayload) => {
 
         const firestore = getFirebase().firestore();
         firestore.collection('messages').doc(messagePayload.id).delete().then(() => {
-            toast.success('Message deleted!',{autoClose : 6000})
+            // toast.success('Message deleted!',{autoClose : 6000})
+            console.log('Message deleted')
             dispatch({ type : "MOD_ACTION",subtype : 'DELETE', messagePayload })
         }).catch((err) => {
             dispatch({ type : "MOD_ACTION_ERROR", subtype : 'DELETE',  err })

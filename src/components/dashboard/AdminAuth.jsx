@@ -9,7 +9,6 @@ export class AdminAuth extends Component {
         }
     }
 
-
     
     handleInput = (e) => {
         this.setState({password : e.target.value})
@@ -32,7 +31,8 @@ export class AdminAuth extends Component {
                     <div>
 
                         <form onSubmit={ (e) => this.handlePasswordSubmit(e)}>
-                        <input type="password" value={password} onChange={this.handleInput} placeholder='Enter Password'  id='input-password' className="form-input user-selectable" onSubmit={this.handlePasswordSubmit}></input>
+                        <input type="password" value={password} ref={(input) => { if(input) input.focus()}}  onChange={this.handleInput} placeholder='Enter Password'  
+                            id='input-password' className="form-input user-selectable" onSubmit={this.handlePasswordSubmit}></input>
                         </form>
                     </div> : null
         )
